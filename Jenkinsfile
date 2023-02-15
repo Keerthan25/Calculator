@@ -6,6 +6,7 @@ pipeline {
     checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Keerthan25/Calculator.git']])
   }
   }
+  }
   stage('SonarQube Analysis') {
     steps {
     def mvn = tool 'Default Maven';
