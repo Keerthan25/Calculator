@@ -7,7 +7,9 @@ pipeline {
   }
   }
   stage('SonarQube Analysis') {
-     def mvn = tool 'Default Maven';
+     tools {
+    maven 'Default Maven'
+  }
     steps {
     withSonarQubeEnv(installationName: 'sonar') {
       sh "${mvn}/bin/mvn clean test sonar:sonar -Dsonar.projectKey=jenkins"
