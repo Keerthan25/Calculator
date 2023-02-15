@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  stages {
+ stages {
   stage('SCM') {
     steps {
     checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Keerthan25/Calculator.git']])
@@ -15,7 +15,7 @@ pipeline {
     }
   }
  }
-  stage("Quality Gate") {
+  stage('Quality Gate') {
             steps {
               timeout(time: 1, unit: 'HOURS') {
                 waitForQualityGate abortPipeline: true
