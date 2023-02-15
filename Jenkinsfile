@@ -12,7 +12,7 @@ pipeline {
   }
     steps {
     withSonarQubeEnv(installationName: 'sonar') {
-      sh "${mvn}/bin/mvn clean test sonar:sonar -Dsonar.projectKey=jenkins"
+      sh "mvn clean test sonar:sonar -Dsonar.projectKey=jenkins"
     }
   }
  }
